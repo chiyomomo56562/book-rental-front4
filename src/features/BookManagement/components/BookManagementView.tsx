@@ -37,8 +37,9 @@ export const BookManagementView = ({
             <TextField
               label="새 제목"
               value={title}
-              onChange={(e) => onTitleChange(e.target.value)}
-              placeholder="도서 제목을 입력하세요"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => onTitleChange(e.target.value)}
+              placeholder="변경할 도서 제목을 입력하세요"
+
               required
               autoFocus
             />

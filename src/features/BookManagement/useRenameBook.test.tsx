@@ -5,6 +5,7 @@ import React from 'react';
 import { useRenameBook } from './useRenameBook';
 import * as api from './api';
 import { QUERY_KEYS } from '../../shared/lib/constants';
+import { AxiosResponse } from 'axios';
 
 vi.mock('./api');
 
@@ -36,7 +37,7 @@ describe('useRenameBook', () => {
 
     const bookId = 'test-id';
     const newTitle = 'Updated Title';
-    vi.mocked(api.renameBookTitle).mockResolvedValue({ id: bookId, title: newTitle });
+    vi.mocked(api.renameBookTitle).mockResolvedValue({ data: { id: bookId, title: newTitle } } as unknown as AxiosResponse);
 
     const { result } = renderHook(() => useRenameBook(bookId), { wrapper: wrapperWithSpy });
 

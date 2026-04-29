@@ -6,6 +6,7 @@ import { useRemoveBook } from './useRemoveBook';
 import * as api from './api';
 import { QUERY_KEYS } from '../../shared/lib/constants';
 import { useNavigate } from 'react-router-dom';
+import { AxiosResponse } from 'axios';
 
 vi.mock('./api');
 vi.mock('react-router-dom', () => ({
@@ -37,7 +38,7 @@ describe('useRemoveBook', () => {
     );
 
     const bookId = 'test-id';
-    vi.mocked(api.deleteBook).mockResolvedValue({ id: bookId });
+    vi.mocked(api.deleteBook).mockResolvedValue({ data: { id: bookId } } as unknown as AxiosResponse);
 
     const { result } = renderHook(() => useRemoveBook(bookId), { wrapper: wrapperWithSpy });
 

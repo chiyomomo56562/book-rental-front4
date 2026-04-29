@@ -5,6 +5,7 @@ import React from 'react';
 import { useRegisterBookMutation } from './useRegisterBookMutation';
 import * as api from './api';
 import { QUERY_KEYS } from '../../shared/lib/constants';
+import { RawBook } from '../../shared/types/book';
 
 vi.mock('./api');
 
@@ -29,7 +30,7 @@ describe('useRegisterBookMutation', () => {
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     );
 
-    const mockBook = { id: 'new-id', title: 'New Book', status: 'AVAILABLE' };
+    const mockBook = { id: 'new-id', title: 'New Book', status: 'AVAILABLE' } as RawBook;
     vi.mocked(api.registerBook).mockResolvedValue(mockBook);
 
     const { result } = renderHook(() => useRegisterBookMutation(), { wrapper });
@@ -46,7 +47,7 @@ describe('useRegisterBookMutation', () => {
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     );
 
-    const mockBook = { id: 'new-id', title: 'New Book', status: 'AVAILABLE' };
+    const mockBook = { id: 'new-id', title: 'New Book', status: 'AVAILABLE' } as RawBook;
     vi.mocked(api.registerBook).mockResolvedValue(mockBook);
 
     const { result } = renderHook(() => useRegisterBookMutation(), { wrapper });

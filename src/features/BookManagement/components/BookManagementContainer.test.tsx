@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { UseMutationResult } from '@tanstack/react-query';
 import { BookManagementContainer } from './BookManagementContainer';
 import { useRenameBook } from '../useRenameBook';
 import { useRemoveBook } from '../useRemoveBook';
@@ -22,11 +21,11 @@ describe('BookManagementContainer', () => {
     vi.mocked(useRenameBook).mockReturnValue({
       mutate: mockRenameMutate,
       isPending: false,
-    } as unknown as UseMutationResult<unknown, Error, unknown, unknown>);
+    } as unknown as ReturnType<typeof useRenameBook>);
     vi.mocked(useRemoveBook).mockReturnValue({
       mutate: mockRemoveMutate,
       isPending: false,
-    } as unknown as UseMutationResult<unknown, Error, unknown, unknown>);
+    } as unknown as ReturnType<typeof useRemoveBook>);
     vi.spyOn(window, 'confirm').mockReturnValue(true);
     vi.spyOn(window, 'alert').mockImplementation(() => {});
   });
@@ -46,9 +45,9 @@ describe('BookManagementContainer', () => {
 
   it('제목 수정 요청이 성공하면 모달이 닫혀야 한다', async () => {
     vi.mocked(useRenameBook).mockReturnValue({
-      mutate: (_data: unknown, options: { onSuccess: () => void; onError: (error: Error) => void }) => options.onSuccess(),
+      mutate: (_data: unknown, options: { onSuccess?: () => void }) => options.onSuccess?.(),
       isPending: false,
-    } as unknown as UseMutationResult<unknown, Error, unknown, unknown>);
+    } as unknown as ReturnType<typeof useRenameBook>);
 
     render(<BookManagementContainer {...mockProps} />);
     fireEvent.click(screen.getByText('수정'));
@@ -86,9 +85,9 @@ describe('BookManagementContainer', () => {
   it('수정 실패 시 에러 알림을 표시해야 한다', async () => {
     const error = new Error('수정 실패');
     vi.mocked(useRenameBook).mockReturnValue({
-      mutate: (_data: unknown, options: { onSuccess: () => void; onError: (error: Error) => void }) => options.onError(error),
+      mutate: (_data: unknown, options: { onError?: (e: Error) => void }) => options.onError?.(error),
       isPending: false,
-    } as unknown as UseMutationResult<unknown, Error, unknown, unknown>);
+    } as unknown as ReturnType<typeof useRenameBook>);
 
     render(<BookManagementContainer {...mockProps} />);
     fireEvent.click(screen.getByText('수정'));
@@ -101,9 +100,9 @@ describe('BookManagementContainer', () => {
   it('삭제 실패 시 에러 알림을 표시해야 한다', async () => {
     const error = new Error('삭제 실패');
     vi.mocked(useRemoveBook).mockReturnValue({
-      mutate: (_data: unknown, options: { onSuccess: () => void; onError: (error: Error) => void }) => options.onError(error),
+      mutate: (_data: unknown, options: { onError?: (e: Error) => void }) => options.onError?.(error),
       isPending: false,
-    } as unknown as UseMutationResult<unknown, Error, unknown, unknown>);
+    } as unknown as ReturnType<typeof useRemoveBook>);
 
     render(<BookManagementContainer {...mockProps} />);
     fireEvent.click(screen.getByText('삭제'));

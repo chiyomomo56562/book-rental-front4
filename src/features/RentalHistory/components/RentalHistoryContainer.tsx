@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRentalHistoryQuery } from '../useRentalHistoryQuery';
 import { RentalHistoryView } from './RentalHistoryView';
 
