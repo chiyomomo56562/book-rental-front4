@@ -3,11 +3,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import { useBooksQuery } from './useBooksQuery'
-import * as api from './api'
-import { RawBook } from './types'
+import * as api from '../api'
+import { RawBook } from '../types'
 
 // API 모킹
-vi.mock('./api')
+vi.mock('../api')
 
 const createTestQueryClient = () =>
   new QueryClient({
@@ -58,7 +58,7 @@ describe('useBooksQuery', () => {
   })
 
   it('should handle loading state', async () => {
-    vi.mocked(api.getBooks).mockReturnValue(new Promise(() => {}))
+    vi.mocked(api.getBooks).mockReturnValue(new Promise(() => { }))
 
     const { result } = renderHook(() => useBooksQuery(), { wrapper })
 

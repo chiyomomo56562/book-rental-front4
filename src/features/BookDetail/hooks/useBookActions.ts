@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { rentalBook, returnBook } from './api'
-import { QUERY_KEYS } from '../../shared/lib/constants'
+import { rentalBook, returnBook } from '../api'
+import { QUERY_KEYS } from '../../../shared/lib/constants'
 
 export const useBookActions = () => {
   const queryClient = useQueryClient()

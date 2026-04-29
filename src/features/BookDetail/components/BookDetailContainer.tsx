@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { useBookDetailQuery } from '../useBookDetailQuery'
-import { useBookActions } from '../useBookActions'
+import { useBookDetailQuery } from '../hooks/useBookDetailQuery'
+import { useBookActions } from '../hooks/useBookActions'
 import { BookDetailView } from './BookDetailView'
 
 interface BookDetailContainerProps {

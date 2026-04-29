@@ -1,12 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { BookDetailContainer } from './BookDetailContainer'
-import { useBookDetailQuery } from '../useBookDetailQuery'
-import { useBookActions } from '../useBookActions'
+import { useBookDetailQuery } from '../hooks/useBookDetailQuery'
+import { useBookActions } from '../hooks/useBookActions'
 import { useNavigate } from 'react-router-dom'
 
-vi.mock('../useBookDetailQuery')
-vi.mock('../useBookActions')
+vi.mock('../hooks/useBookDetailQuery')
+vi.mock('../hooks/useBookActions')
 vi.mock('react-router-dom')
 
 describe('BookDetailContainer', () => {

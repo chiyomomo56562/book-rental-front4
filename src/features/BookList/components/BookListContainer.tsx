@@ -1,4 +1,4 @@
-import { useBooksQuery } from '../useBooksQuery'
+import { useBooksQuery } from '../hooks/useBooksQuery'
 import { BookListView } from './BookListView'
 
 interface BookListContainerProps {
