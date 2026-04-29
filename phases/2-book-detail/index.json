@@ -21,7 +21,10 @@
     {
       "step": 2,
       "name": "book-detail-page",
-      "status": "pending"
+      "status": "completed",
+      "summary": "Implemented BookDetailPage, updated RouterProvider, and added unit tests with ScrollRestoration mocking.",
+      "started_at": "2026-04-29T10:28:21+0900",
+      "completed_at": "2026-04-29T10:29:50+0900"
     },
     {
       "step": 3,
