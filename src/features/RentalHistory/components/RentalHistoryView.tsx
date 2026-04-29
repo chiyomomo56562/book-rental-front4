@@ -1,14 +1,14 @@
-import React from 'react';
 import { RentalHistoryViewModel } from '../types';
-import { EmptyView, Spinner } from '@/shared/ui';
+import { EmptyView, Spinner, Table, THead, TBody, TR, TH, TD, ErrorView } from '@/shared/ui';
 
 interface Props {
   history: RentalHistoryViewModel[];
   isLoading: boolean;
   isError: boolean;
+  onRetry?: () => void;
 }
 
-export const RentalHistoryView = ({ history, isLoading, isError }: Props) => {
+export const RentalHistoryView = ({ history, isLoading, isError, onRetry }: Props) => {
   if (isLoading) {
     return (
       <div className="flex justify-center p-8">
@@ -18,7 +18,7 @@ export const RentalHistoryView = ({ history, isLoading, isError }: Props) => {
   }
 
   if (isError) {
-    return <div className="text-red-500 text-center p-4">대여 이력을 불러오는 중 오류가 발생했습니다.</div>;
+    return <ErrorView message="대여 이력을 불러오는 중 오류가 발생했습니다." onRetry={onRetry} />;
   }
 
   if (history.length === 0) {
@@ -28,26 +28,24 @@ export const RentalHistoryView = ({ history, isLoading, isError }: Props) => {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-bold mb-4">대여 이력</h3>
-      <div className="border rounded-lg overflow-hidden">
-        <table className="w-full text-left">
-          <thead className="bg-gray-50 border-b">
-            <tr>
-              <th className="px-4 py-2 font-semibold">대여 일시</th>
-              <th className="px-4 py-2 font-semibold">반납 일시</th>
-            </tr>
-          </thead>
-          <tbody>
-            {history.map((item) => (
-              <tr key={item.id} className="border-b last:border-0">
-                <td className="px-4 py-3">{item.rentedDateText}</td>
-                <td className={`px-4 py-3 ${item.isCurrentlyRented ? 'text-blue-600 font-bold' : ''}`}>
-                  {item.returnedDateText}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <THead>
+          <TR>
+            <TH>대여 일시</TH>
+            <TH>반납 일시</TH>
+          </TR>
+        </THead>
+        <TBody>
+          {history.map((item) => (
+            <TR key={item.id}>
+              <TD>{item.rentedDateText}</TD>
+              <TD className={item.isCurrentlyRented ? 'text-blue-600 font-bold' : ''}>
+                {item.returnedDateText}
+              </TD>
+            </TR>
+          ))}
+        </TBody>
+      </Table>
     </div>
   );
 };

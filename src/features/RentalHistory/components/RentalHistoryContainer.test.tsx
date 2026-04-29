@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, UseQueryResult } from '@tanstack/react-query';
 import React from 'react';
 import { RentalHistoryContainer } from './RentalHistoryContainer';
 import * as hooks from '../useRentalHistoryQuery';
+import { RentalHistoryViewModel } from '../types';
 
 vi.mock('../useRentalHistoryQuery');
 
@@ -31,7 +32,7 @@ describe('RentalHistoryContainer', () => {
       isLoading: true,
       data: [],
       isError: false,
-    } as any);
+    } as UseQueryResult<RentalHistoryViewModel[]>);
 
     render(<RentalHistoryContainer bookId="1" />, { wrapper });
 
@@ -44,7 +45,7 @@ describe('RentalHistoryContainer', () => {
       data: [],
       isError: false,
       isSuccess: true,
-    } as any);
+    } as UseQueryResult<RentalHistoryViewModel[]>);
 
     render(<RentalHistoryContainer bookId="1" />, { wrapper });
 
@@ -72,7 +73,7 @@ describe('RentalHistoryContainer', () => {
       ],
       isError: false,
       isSuccess: true,
-    } as any);
+    } as UseQueryResult<RentalHistoryViewModel[]>);
 
     render(<RentalHistoryContainer bookId="1" />, { wrapper });
 
@@ -86,7 +87,7 @@ describe('RentalHistoryContainer', () => {
       isLoading: false,
       data: [],
       isError: true,
-    } as any);
+    } as UseQueryResult<RentalHistoryViewModel[]>);
 
     render(<RentalHistoryContainer bookId="1" />, { wrapper });
 

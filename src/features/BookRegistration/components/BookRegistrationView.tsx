@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { RegistrationFormValues } from '../types';
-import { Button, TextField, Card, CardHeader, CardTitle, CardContent } from '../../../shared/ui';
+import { Button, TextField, Card, CardHeader, CardTitle, CardContent, ErrorView } from '../../../shared/ui';
 import { requiredString } from '../../../shared/lib/validation';
 
 interface Props {
@@ -36,9 +36,7 @@ export const BookRegistrationView = ({ onSubmit, isLoading, isError }: Props) =>
           />
 
           {isError && (
-            <p className="text-sm text-danger" role="alert">
-              도서 등록 중 오류가 발생했습니다. 다시 시도해주세요.
-            </p>
+            <ErrorView message="도서 등록 중 오류가 발생했습니다. 다시 시도해주세요." />
           )}
 
           <Button type="submit" isLoading={isLoading} className="w-full">

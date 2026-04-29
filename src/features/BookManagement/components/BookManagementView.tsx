@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from '../../../shared/ui/Button';
-import { TextField } from '../../../shared/ui/TextField';
+import { Button, TextField, Modal } from '@/shared/ui';
 
 interface Props {
   isModalOpen: boolean;
@@ -32,33 +31,28 @@ export const BookManagementView = ({
         삭제
       </Button>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
-            <h2 className="mb-4 text-xl font-bold">도서 제목 수정</h2>
-            <form onSubmit={onSubmitRename}>
-              <div className="mb-6">
-                <TextField
-                  label="새 제목"
-                  value={title}
-                  onChange={(e) => onTitleChange(e.target.value)}
-                  placeholder="도서 제목을 입력하세요"
-                  required
-                  autoFocus
-                />
-              </div>
-              <div className="flex justify-end gap-2">
-                <Button type="button" variant="outline" onClick={onCloseModal}>
-                  취소
-                </Button>
-                <Button type="submit" isLoading={isPending}>
-                  저장
-                </Button>
-              </div>
-            </form>
+      <Modal isOpen={isModalOpen} onClose={onCloseModal} title="도서 제목 수정">
+        <form onSubmit={onSubmitRename}>
+          <div className="mb-6">
+            <TextField
+              label="새 제목"
+              value={title}
+              onChange={(e) => onTitleChange(e.target.value)}
+              placeholder="도서 제목을 입력하세요"
+              required
+              autoFocus
+            />
           </div>
-        </div>
-      )}
+          <div className="flex justify-end gap-2">
+            <Button type="button" variant="outline" onClick={onCloseModal}>
+              취소
+            </Button>
+            <Button type="submit" isLoading={isPending}>
+              저장
+            </Button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 };

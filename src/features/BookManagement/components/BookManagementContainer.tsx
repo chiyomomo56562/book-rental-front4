@@ -34,7 +34,7 @@ export const BookManagementContainer = ({ bookId, initialTitle }: BookManagement
         onSuccess: () => {
           handleCloseModal();
         },
-        onError: (error: any) => {
+        onError: (error: Error) => {
           alert(error.message || '수정에 실패했습니다.');
         },
       }
@@ -44,7 +44,7 @@ export const BookManagementContainer = ({ bookId, initialTitle }: BookManagement
   const handleDelete = () => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
       remove(undefined, {
-        onError: (error: any) => {
+        onError: (error: Error) => {
           alert(error.message || '삭제에 실패했습니다.');
         },
       });

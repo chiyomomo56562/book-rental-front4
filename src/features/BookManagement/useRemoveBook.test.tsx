@@ -28,11 +28,6 @@ describe('useRemoveBook', () => {
     vi.mocked(useNavigate).mockReturnValue(mockNavigate);
   });
 
-  const wrapper = ({ children }: { children: React.ReactNode }) => {
-    const queryClient = createTestQueryClient();
-    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
-  };
-
   it('도서 삭제가 성공하면 deleteBook API를 호출하고 쿼리를 무효화하며 홈으로 이동해야 한다', async () => {
     const queryClient = createTestQueryClient();
     const invalidateSpy = vi.spyOn(queryClient, 'invalidateQueries');

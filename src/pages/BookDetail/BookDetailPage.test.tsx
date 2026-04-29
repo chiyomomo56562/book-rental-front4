@@ -6,6 +6,15 @@ import { BookDetailPage } from './BookDetailPage'
 // Mock features that might not exist yet or we want to isolate
 vi.mock('../../features/BookDetail', () => ({
   BookDetailContainer: ({ id }: { id: string }) => <div data-testid="book-detail-container">Book ID: {id}</div>,
+  useBookDetailQuery: vi.fn().mockReturnValue({ data: { title: 'Test Book' } }),
+}))
+
+vi.mock('../../features/BookManagement', () => ({
+  BookManagement: () => <div data-testid="book-management">BookManagement</div>,
+}))
+
+vi.mock('../../features/RentalHistory', () => ({
+  RentalHistory: () => <div data-testid="rental-history">RentalHistory</div>,
 }))
 
 vi.mock('react-router-dom', async () => {

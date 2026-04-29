@@ -7,7 +7,14 @@ interface Props {
 }
 
 export const RentalHistoryContainer = ({ bookId }: Props) => {
-  const { data: history = [], isLoading, isError } = useRentalHistoryQuery(bookId);
+  const { data: history = [], isLoading, isError, refetch } = useRentalHistoryQuery(bookId);
 
-  return <RentalHistoryView history={history} isLoading={isLoading} isError={isError} />;
+  return (
+    <RentalHistoryView
+      history={history}
+      isLoading={isLoading}
+      isError={isError}
+      onRetry={refetch}
+    />
+  );
 };
