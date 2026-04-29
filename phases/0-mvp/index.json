@@ -7,7 +7,7 @@
       "name": "project-scaffolding",
       "status": "completed",
       "started_at": "2026-04-29T09:23:17+0900",
-      "summary": "湲곕낯 ?대뜑 援ъ“ 諛?TailwindCSS ?ㅼ젙 ?꾨즺",
+      "summary": "기본 폴더 구조 및 TailwindCSS 설정 완료",
       "completed_at": "2026-04-29T09:25:29+0900"
     },
     {
@@ -15,7 +15,7 @@
       "name": "shared-ui",
       "status": "completed",
       "started_at": "2026-04-29T09:25:30+0900",
-      "summary": "怨듯넻 UI 而댄룷?뚰듃(Button, Card, Badge, Spinner) 援ы쁽 諛??뚯뒪???꾨즺",
+      "summary": "공통 UI 컴포넌트(Button, Card, Badge, Spinner) 구현 및 테스트 완료",
       "completed_at": "2026-04-29T09:33:54+0900"
     },
     {
@@ -23,7 +23,7 @@
       "name": "api-infra-msw",
       "status": "completed",
       "started_at": "2026-04-29T09:33:54+0900",
-      "summary": "Axios ?몄뒪?댁뒪 諛?MSW 紐⑦궧 ?명봽???ㅼ젙 ?꾨즺",
+      "summary": "Axios 인스턴스 및 MSW 모킹 인프라 설정 완료",
       "completed_at": "2026-04-29T09:36:30+0900"
     },
     {
@@ -53,7 +53,10 @@
     {
       "step": 6,
       "name": "app-bootstrap",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-04-29T09:47:34+0900",
+      "summary": "애플리케이션 엔트리 포인트 설정 및 전체 통합 완료",
+      "completed_at": "2026-04-29T09:50:29+09:00"
     }
   ],
   "created_at": "2026-04-29T09:23:17+0900"
