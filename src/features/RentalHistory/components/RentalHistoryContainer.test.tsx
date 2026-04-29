@@ -5,7 +5,7 @@ import React from 'react';
 import { RentalHistoryContainer } from './RentalHistoryContainer';
 import * as hooks from '../hooks/useRentalHistoryQuery';
 
-vi.mock('../useRentalHistoryQuery');
+vi.mock('../hooks/useRentalHistoryQuery');
 
 const createTestQueryClient = () =>
   new QueryClient({

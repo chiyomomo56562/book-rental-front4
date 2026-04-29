@@ -4,8 +4,8 @@ import { BookManagementContainer } from './BookManagementContainer';
 import { useRenameBook } from '../hooks/useRenameBook';
 import { useRemoveBook } from '../hooks/useRemoveBook';
 
-vi.mock('../useRenameBook');
-vi.mock('../useRemoveBook');
+vi.mock('../hooks/useRenameBook');
+vi.mock('../hooks/useRemoveBook');
 
 describe('BookManagementContainer', () => {
   const mockProps = {

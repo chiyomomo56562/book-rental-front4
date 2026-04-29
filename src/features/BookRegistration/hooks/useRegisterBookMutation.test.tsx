@@ -4,10 +4,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import { useRegisterBookMutation } from './useRegisterBookMutation';
 import * as api from '../api';
-import { QUERY_KEYS } from '../../../shared/lib/constants';
-import { RawBook } from '../../../shared/types/book';
+import { QUERY_KEYS } from '@/shared/lib/constants';
+import { RawBook } from '@/shared/types/book';
 
-vi.mock('./api');
+vi.mock('../api');
 
 const createTestQueryClient = () =>
   new QueryClient({

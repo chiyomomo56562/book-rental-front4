@@ -7,7 +7,7 @@ import * as api from '../api';
 import { QUERY_KEYS } from '../../../shared/lib/constants';
 import { AxiosResponse } from 'axios';
 
-vi.mock('./api');
+vi.mock('../api');
 
 const createTestQueryClient = () =>
   new QueryClient({

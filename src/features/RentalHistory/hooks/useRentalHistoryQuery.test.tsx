@@ -6,7 +6,7 @@ import { useRentalHistoryQuery } from './useRentalHistoryQuery';
 import * as api from '../api';
 import { RawRentalHistory } from '../types';
 
-vi.mock('./api');
+vi.mock('../api');
 
 const createTestQueryClient = () =>
   new QueryClient({

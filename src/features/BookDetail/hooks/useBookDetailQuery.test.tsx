@@ -7,7 +7,7 @@ import * as api from '../api'
 import { RawBook } from '../types'
 
 // API 모킹
-vi.mock('./api')
+vi.mock('../api')
 
 const createTestQueryClient = () =>
   new QueryClient({

@@ -5,7 +5,7 @@ import { BookRegistrationContainer } from './BookRegistrationContainer';
 import { useRegisterBookMutation } from '../hooks/useRegisterBookMutation';
 
 // useRegisterBookMutation 모킹
-vi.mock('../useRegisterBookMutation');
+vi.mock('../hooks/useRegisterBookMutation');
 
 const mockNavigate = vi.fn();
 vi.mock('react-router-dom', async () => {
