@@ -5,9 +5,9 @@ import {
   CardHeader,
   CardTitle,
   Badge,
-  Spinner,
   ErrorView,
   EmptyView,
+  LoadingView,
 } from '../../../shared/ui'
 
 interface BookListViewProps {
@@ -19,11 +19,7 @@ interface BookListViewProps {
 
 export const BookListView = ({ books, isLoading, isError, onBookClick }: BookListViewProps) => {
   if (isLoading) {
-    return (
-      <div className="flex h-40 items-center justify-center">
-        <Spinner size="lg" />
-      </div>
-    )
+    return <LoadingView />
   }
 
   if (isError) {

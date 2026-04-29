@@ -1,5 +1,5 @@
 import { BookDetailViewModel } from '../types'
-import { Card, Button, Badge, Spinner, ErrorView } from '@/shared/ui'
+import { Card, Button, Badge, ErrorView, LoadingView } from '@/shared/ui'
 
 interface BookDetailViewProps {
   book?: BookDetailViewModel
@@ -19,11 +19,7 @@ export const BookDetailView = ({
   onBack,
 }: BookDetailViewProps) => {
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <Spinner size="lg" />
-      </div>
-    )
+    return <LoadingView fullHeight />
   }
 
   if (isError || !book) {
@@ -42,7 +38,7 @@ export const BookDetailView = ({
         <div className="flex flex-col gap-6">
           <div className="flex justify-between items-start">
             <h1 className="text-3xl font-bold text-gray-900">{book.title}</h1>
-            <Badge variant={book.canRent ? 'success' : 'warning'}>{book.statusLabel}</Badge>
+            <Badge variant={book.statusColor}>{book.statusLabel}</Badge>
           </div>
 
           <div className="border-t border-b py-6 text-gray-600">
