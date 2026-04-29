@@ -1,0 +1,30 @@
+{
+  "project": "book-rental-front4",
+  "phase": "2-book-detail",
+  "steps": [
+    {
+      "step": 0,
+      "name": "book-detail-feature-data",
+      "status": "completed",
+      "summary": "Implemented BookDetail data layer (types, api, mapper, and useBookDetailQuery) with unit tests.",
+      "started_at": "2026-04-29T10:22:04+0900",
+      "completed_at": "2026-04-29T10:24:00+0900"
+    },
+    {
+      "step": 1,
+      "name": "book-detail-feature-components",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "name": "book-detail-page",
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "name": "shared-refactoring-and-review",
+      "status": "pending"
+    }
+  ],
+  "created_at": "2026-04-29T10:22:04+0900"
+}
