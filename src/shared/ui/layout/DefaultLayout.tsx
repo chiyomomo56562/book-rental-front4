@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 interface DefaultLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
@@ -14,5 +14,5 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       </header>
       {children}
     </div>
-  );
-};
+  )
+}

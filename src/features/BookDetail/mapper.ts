@@ -1,7 +1,7 @@
-import { RawBookDetail, BookDetailViewModel } from './types';
+import { RawBookDetail, BookDetailViewModel } from './types'
 
 export const mapBookDetail = (data: RawBookDetail): BookDetailViewModel => {
-  const isAvailable = data.status === 'AVAILABLE';
+  const isAvailable = data.status === 'AVAILABLE'
 
   return {
     id: data.id,
@@ -10,5 +10,5 @@ export const mapBookDetail = (data: RawBookDetail): BookDetailViewModel => {
     actionButtonText: isAvailable ? '대여하기' : '반납하기',
     canRent: isAvailable,
     canReturn: !isAvailable,
-  };
-};
+  }
+}

@@ -13,7 +13,8 @@
     {
       "step": 1,
       "name": "book-detail-feature-components",
-      "status": "pending"
+      "status": "pending",
+      "started_at": "2026-04-29T10:24:14+0900"
     },
     {
       "step": 2,

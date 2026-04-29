@@ -1,7 +1,7 @@
-export type BookStatus = 'AVAILABLE' | 'RENTED';
+export type BookStatus = 'AVAILABLE' | 'RENTED'
 
 export interface RawBook {
-  id: string;
-  title: string;
-  status: BookStatus;
+  id: string
+  title: string
+  status: BookStatus
 }

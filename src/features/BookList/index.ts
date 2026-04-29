@@ -1,2 +1,2 @@
-export { BookListContainer } from './components/BookListContainer';
-export * from './types';
+export { BookListContainer } from './components/BookListContainer'
+export * from './types'

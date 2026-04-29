@@ -1,18 +1,18 @@
-import { useNavigate, ScrollRestoration } from 'react-router-dom';
-import { BookListContainer } from '../../features/BookList';
-import { DefaultLayout } from '../../shared/ui/layout/DefaultLayout';
-import { Button } from '../../shared/ui';
+import { useNavigate, ScrollRestoration } from 'react-router-dom'
+import { BookListContainer } from '../../features/BookList'
+import { DefaultLayout } from '../../shared/ui/layout/DefaultLayout'
+import { Button } from '../../shared/ui'
 
 export const BookListPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleRegisterClick = () => {
-    navigate('/books/register');
-  };
+    navigate('/books/register')
+  }
 
   const handleBookClick = (id: number) => {
-    navigate(`/books/${id}`);
-  };
+    navigate(`/books/${id}`)
+  }
 
   return (
     <DefaultLayout>
@@ -25,5 +25,5 @@ export const BookListPage = () => {
         <BookListContainer onBookClick={handleBookClick} />
       </main>
     </DefaultLayout>
-  );
-};
+  )
+}
