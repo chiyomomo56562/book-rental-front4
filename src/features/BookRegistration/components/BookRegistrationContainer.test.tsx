@@ -25,7 +25,7 @@ describe('BookRegistrationContainer', () => {
       mutate: mockMutate,
       isPending: false,
       isError: false,
-    } as any);
+    } as ReturnType<typeof useRegisterBookMutation>);
   });
 
   it('도서 등록 폼을 렌더링해야 한다', () => {
@@ -87,7 +87,7 @@ describe('BookRegistrationContainer', () => {
       mutate: mockMutate,
       isPending: true,
       isError: false,
-    } as any);
+    } as ReturnType<typeof useRegisterBookMutation>);
 
     render(
       <MemoryRouter>
