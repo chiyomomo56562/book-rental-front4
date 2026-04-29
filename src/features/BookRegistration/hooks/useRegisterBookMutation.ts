@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { registerBook } from './api';
-import { CreateBookRequest } from './types';
-import { QUERY_KEYS } from '../../shared/lib/constants';
+import { registerBook } from '../api';
+import { CreateBookRequest } from '../types';
+import { QUERY_KEYS } from '../../../shared/lib/constants';
 
 export const useRegisterBookMutation = () => {
   const queryClient = useQueryClient();

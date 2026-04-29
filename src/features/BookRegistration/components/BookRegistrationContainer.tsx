@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { BookRegistrationView } from './BookRegistrationView';
-import { useRegisterBookMutation } from '../useRegisterBookMutation';
+import { useRegisterBookMutation } from '../hooks/useRegisterBookMutation';
 import { RegistrationFormValues } from '../types';
 
 export const BookRegistrationContainer = () => {

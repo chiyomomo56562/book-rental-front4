@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BookManagementProps } from '../types';
-import { useRenameBook } from '../useRenameBook';
-import { useRemoveBook } from '../useRemoveBook';
+import { useRenameBook } from '../hooks/useRenameBook';
+import { useRemoveBook } from '../hooks/useRemoveBook';
 import { BookManagementView } from './BookManagementView';
 
 export const BookManagementContainer = ({ bookId, initialTitle }: BookManagementProps) => {
@@ -22,7 +22,7 @@ export const BookManagementContainer = ({ bookId, initialTitle }: BookManagement
 
   const handleRename = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (newTitle === initialTitle) {
       alert('변경사항이 없습니다.');
       return;

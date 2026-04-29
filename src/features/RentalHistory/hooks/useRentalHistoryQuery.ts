@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { getRentalHistory } from './api';
-import { mapRentalHistory } from './mapper';
-import { RentalHistoryViewModel } from './types';
+import { getRentalHistory } from '../api';
+import { mapRentalHistory } from '../mapper';
+import { RentalHistoryViewModel } from '../types';
 
 export const useRentalHistoryQuery = (bookId: string) => {
   return useQuery({
@@ -10,7 +10,7 @@ export const useRentalHistoryQuery = (bookId: string) => {
       const { data } = await getRentalHistory(bookId);
       return data
         .map(mapRentalHistory)
-        .sort((a: RentalHistoryViewModel, b: RentalHistoryViewModel) => 
+        .sort((a: RentalHistoryViewModel, b: RentalHistoryViewModel) =>
           new Date(b.rentedAt).getTime() - new Date(a.rentedAt).getTime()
         );
     },

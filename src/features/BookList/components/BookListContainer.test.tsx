@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { BookListContainer } from './BookListContainer'
-import { useBooksQuery } from '../useBooksQuery'
+import { useBooksQuery } from '../hooks/useBooksQuery'
 
 // useBooksQuery 훅 모킹
-vi.mock('../useBooksQuery')
+vi.mock('../hooks/useBooksQuery')
 
 describe('BookListContainer', () => {
   beforeEach(() => {

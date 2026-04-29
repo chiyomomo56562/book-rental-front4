@@ -3,8 +3,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import { useRentalHistoryQuery } from './useRentalHistoryQuery';
-import * as api from './api';
-import { RawRentalHistory } from './types';
+import * as api from '../api';
+import { RawRentalHistory } from '../types';
 
 vi.mock('./api');
 
@@ -54,7 +54,7 @@ describe('useRentalHistoryQuery', () => {
     // 최신순 정렬 확인 (ID 2가 먼저 와야 함)
     expect(result.current.data?.[0].id).toBe('2');
     expect(result.current.data?.[1].id).toBe('1');
-    
+
     // 매핑 확인
     expect(result.current.data?.[0].returnedDateText).toBe('대여 중');
     expect(result.current.data?.[0].isCurrentlyRented).toBe(true);

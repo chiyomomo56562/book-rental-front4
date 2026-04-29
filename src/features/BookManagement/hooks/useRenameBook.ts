@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { renameBookTitle } from './api';
-import { QUERY_KEYS } from '../../shared/lib/constants';
-import { RenameBookTitleRequest } from './types';
+import { renameBookTitle } from '../api';
+import { QUERY_KEYS } from '../../../shared/lib/constants';
+import { RenameBookTitleRequest } from '../types';
 
 export const useRenameBook = (id: string) => {
   const queryClient = useQueryClient();

@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { BookManagementContainer } from './BookManagementContainer';
-import { useRenameBook } from '../useRenameBook';
-import { useRemoveBook } from '../useRemoveBook';
+import { useRenameBook } from '../hooks/useRenameBook';
+import { useRemoveBook } from '../hooks/useRemoveBook';
 
 vi.mock('../useRenameBook');
 vi.mock('../useRemoveBook');
@@ -27,7 +27,7 @@ describe('BookManagementContainer', () => {
       isPending: false,
     } as unknown as ReturnType<typeof useRemoveBook>);
     vi.spyOn(window, 'confirm').mockReturnValue(true);
-    vi.spyOn(window, 'alert').mockImplementation(() => {});
+    vi.spyOn(window, 'alert').mockImplementation(() => { });
   });
 
   it('수정 버튼 클릭 시 모달이 열려야 한다', () => {
@@ -69,7 +69,7 @@ describe('BookManagementContainer', () => {
   it('삭제 버튼 클릭 시 confirm 확인 후 삭제 API를 호출해야 한다', () => {
     render(<BookManagementContainer {...mockProps} />);
     fireEvent.click(screen.getByText('삭제'));
-    
+
     expect(window.confirm).toHaveBeenCalled();
     expect(mockRemoveMutate).toHaveBeenCalled();
   });
@@ -78,7 +78,7 @@ describe('BookManagementContainer', () => {
     vi.mocked(window.confirm).mockReturnValue(false);
     render(<BookManagementContainer {...mockProps} />);
     fireEvent.click(screen.getByText('삭제'));
-    
+
     expect(mockRemoveMutate).not.toHaveBeenCalled();
   });
 

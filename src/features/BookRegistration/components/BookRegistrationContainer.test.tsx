@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { BookRegistrationContainer } from './BookRegistrationContainer';
-import { useRegisterBookMutation } from '../useRegisterBookMutation';
+import { useRegisterBookMutation } from '../hooks/useRegisterBookMutation';
 
 // useRegisterBookMutation 모킹
 vi.mock('../useRegisterBookMutation');
@@ -34,7 +34,7 @@ describe('BookRegistrationContainer', () => {
         <BookRegistrationContainer />
       </MemoryRouter>
     );
-    
+
     expect(screen.getByLabelText(/제목/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /등록/i })).toBeInTheDocument();
   });

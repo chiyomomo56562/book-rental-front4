@@ -3,8 +3,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import { useRenameBook } from './useRenameBook';
-import * as api from './api';
-import { QUERY_KEYS } from '../../shared/lib/constants';
+import * as api from '../api';
+import { QUERY_KEYS } from '../../../shared/lib/constants';
 import { AxiosResponse } from 'axios';
 
 vi.mock('./api');
@@ -30,7 +30,7 @@ describe('useRenameBook', () => {
   it('도서 제목 수정이 성공하면 renameBookTitle API를 호출하고 관련 쿼리를 무효화해야 한다', async () => {
     const queryClient = createTestQueryClient();
     const invalidateSpy = vi.spyOn(queryClient, 'invalidateQueries');
-    
+
     const wrapperWithSpy = ({ children }: { children: React.ReactNode }) => (
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     );

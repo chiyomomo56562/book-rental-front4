@@ -1,4 +1,4 @@
-import { useRentalHistoryQuery } from '../useRentalHistoryQuery';
+import { useRentalHistoryQuery } from '../hooks/useRentalHistoryQuery';
 import { RentalHistoryView } from './RentalHistoryView';
 
 interface Props {
