@@ -1,0 +1,64 @@
+{
+  "project": "book-rental-front4",
+  "phase": "0-mvp",
+  "steps": [
+    {
+      "step": 0,
+      "name": "project-scaffolding",
+      "status": "completed",
+      "started_at": "2026-04-29T09:23:17+0900",
+      "summary": "기본 폴더 구조 및 TailwindCSS 설정 완료",
+      "completed_at": "2026-04-29T09:25:29+0900"
+    },
+    {
+      "step": 1,
+      "name": "shared-ui",
+      "status": "completed",
+      "started_at": "2026-04-29T09:25:30+0900",
+      "summary": "공통 UI 컴포넌트(Button, Card, Badge, Spinner) 구현 및 테스트 완료",
+      "completed_at": "2026-04-29T09:33:54+0900"
+    },
+    {
+      "step": 2,
+      "name": "api-infra-msw",
+      "status": "completed",
+      "started_at": "2026-04-29T09:33:54+0900",
+      "summary": "Axios 인스턴스 및 MSW 모킹 인프라 설정 완료",
+      "completed_at": "2026-04-29T09:36:30+0900"
+    },
+    {
+      "step": 3,
+      "name": "book-list-feature-data",
+      "status": "completed",
+      "started_at": "2026-04-29T09:36:30+0900",
+      "summary": "BookList 피처의 Mapper, API, Query Hook 구현 및 테스트 완료",
+      "completed_at": "2026-04-29T09:39:14+0900"
+    },
+    {
+      "step": 4,
+      "name": "book-list-feature-components",
+      "status": "completed",
+      "started_at": "2026-04-29T09:39:14+0900",
+      "summary": "BookList 피처의 Container 및 View 컴포넌트 구현 완료",
+      "completed_at": "2026-04-29T09:44:23+0900"
+    },
+    {
+      "step": 5,
+      "name": "layout-and-page",
+      "status": "completed",
+      "started_at": "2026-04-29T09:44:23+0900",
+      "summary": "DefaultLayout 및 BookListPage 구현 완료",
+      "completed_at": "2026-04-29T09:47:34+0900"
+    },
+    {
+      "step": 6,
+      "name": "app-bootstrap",
+      "status": "completed",
+      "started_at": "2026-04-29T09:47:34+0900",
+      "summary": "애플리케이션 엔트리 포인트 설정 및 전체 통합 완료",
+      "completed_at": "2026-04-29T09:51:23+0900"
+    }
+  ],
+  "created_at": "2026-04-29T09:23:17+0900",
+  "completed_at": "2026-04-29T09:51:23+0900"
+}
