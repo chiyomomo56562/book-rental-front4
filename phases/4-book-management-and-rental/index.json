@@ -24,7 +24,7 @@
       "status": "completed",
       "started_at": "2026-04-29T11:11:23+0900",
       "summary": "Refactored shared UI (Modal, Table), standardized ErrorView/Button, and integrated features into BookDetailPage.",
-      "completed_at": "2026-04-29T11:23:00+0900"
+      "completed_at": "2026-04-29T11:22:22+0900"
     },
     {
       "step": 3,
