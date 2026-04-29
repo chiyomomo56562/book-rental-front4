@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import { useBookDetailQuery } from './useBookDetailQuery'
 import * as api from './api'
-import { RawBookDetail } from './types'
+import { RawBook } from './types'
 
 // API 모킹
 vi.mock('./api')
@@ -29,7 +29,7 @@ describe('useBookDetailQuery', () => {
   })
 
   it('should fetch and map book detail correctly', async () => {
-    const mockRawBook: RawBookDetail = {
+    const mockRawBook: RawBook = {
       id: '1',
       title: 'Test Book',
       status: 'AVAILABLE',
@@ -45,6 +45,7 @@ describe('useBookDetailQuery', () => {
       id: '1',
       title: 'Test Book',
       statusLabel: '현재 대여 가능',
+      statusColor: 'success',
       actionButtonText: '대여하기',
       canRent: true,
       canReturn: false,

@@ -1,7 +1,7 @@
 import { axiosInstance } from '../../shared/api/axiosInstance'
-import { RawBookDetail } from './types'
+import { RawBook } from './types'
 
-export const getBookById = (id: string): Promise<RawBookDetail> => {
+export const getBookById = (id: string): Promise<RawBook> => {
   return axiosInstance.get(`/books/${id}`)
 }
 

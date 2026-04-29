@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import { mapBookDetail } from './mapper'
-import { RawBookDetail, BookDetailViewModel } from './types'
+import { RawBook, BookDetailViewModel } from './types'
 
 describe('BookDetail Mapper', () => {
   it('should map AVAILABLE status correctly', () => {
-    const rawData: RawBookDetail = {
+    const rawData: RawBook = {
       id: '1',
       title: 'Test Book',
       status: 'AVAILABLE',
@@ -14,6 +14,7 @@ describe('BookDetail Mapper', () => {
       id: '1',
       title: 'Test Book',
       statusLabel: '현재 대여 가능',
+      statusColor: 'success',
       actionButtonText: '대여하기',
       canRent: true,
       canReturn: false,
@@ -23,7 +24,7 @@ describe('BookDetail Mapper', () => {
   })
 
   it('should map RENTED status correctly', () => {
-    const rawData: RawBookDetail = {
+    const rawData: RawBook = {
       id: '2',
       title: 'Borrowed Book',
       status: 'RENTED',
@@ -33,6 +34,7 @@ describe('BookDetail Mapper', () => {
       id: '2',
       title: 'Borrowed Book',
       statusLabel: '현재 대여 중',
+      statusColor: 'danger',
       actionButtonText: '반납하기',
       canRent: false,
       canReturn: true,
