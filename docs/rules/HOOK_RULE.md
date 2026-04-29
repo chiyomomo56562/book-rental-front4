@@ -67,3 +67,7 @@ export const useCreateBookMutation = () => {
   export const useCreateBookMutation = () => { ... };
   export const useDeleteBookMutation = () => { ... };
   ```
+
+## 6. Directory Structure
+
+- **Location**: 모든 커스텀 훅은 각 기능(Feature) 또는 도메인 디렉토리 하위의 `hooks/` 폴더 내에 위치시켜 관리합니다.
