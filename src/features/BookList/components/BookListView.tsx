@@ -1,5 +1,5 @@
 import { BookViewModel } from '../types';
-import { Card, CardContent, CardHeader, CardTitle, Badge, Spinner } from '../../../shared/ui';
+import { Card, CardContent, CardHeader, CardTitle, Badge, Spinner, ErrorView, EmptyView } from '../../../shared/ui';
 
 interface BookListViewProps {
   books: BookViewModel[];
@@ -18,11 +18,7 @@ export const BookListView = ({ books, isLoading, isError, onBookClick }: BookLis
   }
 
   if (isError) {
-    return (
-      <div className="rounded-lg bg-red-50 p-4 text-center text-red-600">
-        데이터를 불러오는 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
-      </div>
-    );
+    return <ErrorView />;
   }
 
   return (
@@ -31,22 +27,20 @@ export const BookListView = ({ books, isLoading, isError, onBookClick }: BookLis
         <Card 
           key={book.id} 
           className="overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
-          onClick={() => onBookClick?.(book.id)}
+          onClick={() => onBookClick?.(Number(book.id))}
         >
           <CardHeader>
             <CardTitle className="text-lg font-bold">{book.title}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Badge variant={book.statusColor === 'green' ? 'success' : 'danger'}>
+            <Badge variant={book.statusColor}>
               {book.statusText}
             </Badge>
           </CardContent>
         </Card>
       ))}
       {books.length === 0 && (
-        <div className="col-span-full py-10 text-center text-gray-500">
-          등록된 도서가 없습니다.
-        </div>
+        <EmptyView message="등록된 도서가 없습니다." />
       )}
     </div>
   );

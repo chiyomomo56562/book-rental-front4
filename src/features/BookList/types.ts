@@ -1,15 +1,12 @@
-/** BOOK_API.md의 GET /books 응답 구조 */
-export interface RawBook {
-  id: string;
-  title: string;
-  status: 'AVAILABLE' | 'RENTED';
-}
+import { RawBook } from '../../shared/types/book';
+
+export type { RawBook };
 
 /** 컴포넌트에서 사용하는 정제된 구조 */
 export interface BookViewModel {
   id: string;
   title: string;
-  statusText: '대여 가능' | '대여 중';
+  statusText: string;
   isRentable: boolean;
-  statusColor: 'green' | 'red';
+  statusColor: 'success' | 'danger';
 }

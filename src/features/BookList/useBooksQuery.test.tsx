@@ -50,14 +50,14 @@ describe('useBooksQuery', () => {
       title: 'Book 1',
       statusText: '대여 가능',
       isRentable: true,
-      statusColor: 'green',
+      statusColor: 'success',
     });
     expect(result.current.data?.[1]).toEqual({
       id: '2',
       title: 'Book 2',
       statusText: '대여 중',
       isRentable: false,
-      statusColor: 'red',
+      statusColor: 'danger',
     });
   });
 

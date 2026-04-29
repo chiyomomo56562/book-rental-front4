@@ -18,11 +18,12 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-  (response: AxiosResponse<ApiResponse<unknown>>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (response: AxiosResponse<ApiResponse<any>>) => {
     // API_RULE: Return only the pure data (res.data.data)
     // If the response structure follows ApiResponse, return res.data.data
     if (response.data && Object.prototype.hasOwnProperty.call(response.data, 'data')) {
-      return response.data.data as any;
+      return response.data.data;
     }
     return response.data;
   },

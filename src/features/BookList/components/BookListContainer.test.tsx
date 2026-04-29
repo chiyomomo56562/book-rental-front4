@@ -16,7 +16,7 @@ describe('BookListContainer', () => {
       data: undefined,
       isLoading: true,
       isError: false,
-    } as any);
+    } as ReturnType<typeof useBooksQuery>);
 
     render(<BookListContainer />);
     
@@ -25,15 +25,15 @@ describe('BookListContainer', () => {
 
   it('데이터 로드 성공 시 도서 목록을 표시해야 한다', () => {
     const mockBooks = [
-      { id: '1', title: 'Test Book 1', statusText: '대여 가능', statusColor: 'green' as const, isRentable: true },
-      { id: '2', title: 'Test Book 2', statusText: '대여 중', statusColor: 'red' as const, isRentable: false },
+      { id: '1', title: 'Test Book 1', statusText: '대여 가능', statusColor: 'success' as const, isRentable: true },
+      { id: '2', title: 'Test Book 2', statusText: '대여 중', statusColor: 'danger' as const, isRentable: false },
     ];
 
     vi.mocked(useBooksQuery).mockReturnValue({
       data: mockBooks,
       isLoading: false,
       isError: false,
-    } as any);
+    } as ReturnType<typeof useBooksQuery>);
 
     render(<BookListContainer />);
 
@@ -48,7 +48,7 @@ describe('BookListContainer', () => {
       data: undefined,
       isLoading: false,
       isError: true,
-    } as any);
+    } as ReturnType<typeof useBooksQuery>);
 
     render(<BookListContainer />);
 
